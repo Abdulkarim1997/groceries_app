@@ -1,10 +1,21 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:groceries_app/shard/bloc_observer.dart';
 import 'package:groceries_app/shard/styles/themes.dart';
 
-import 'modules/select_location/select_location.dart';
+import 'layout/cubit/cubit.dart';
+import 'modules/splash/splash_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  BlocOverrides.runZoned(
+    () async {
+      // Use blocs...
+      runApp(const MyApp());
+    },
+    blocObserver: MyBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,11 +24,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-
-      theme: lightTheme,
-      home: SelectLocationScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<GroceriesCubit>(create: (context) => GroceriesCubit()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme,
+        home: const SplashScreen(),
+      ),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:groceries_app/modules/login/login_screen.dart';
 
+import '../../shard/components/components.dart';
 import '../../shard/styles/colors.dart';
 
 class onBoardingScreen extends StatelessWidget {
@@ -75,7 +77,9 @@ class onBoardingScreen extends StatelessWidget {
                         RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(19.0),
                     ))),
-                onPressed: () {},
+                onPressed: () {
+                  navigateTo(context, LoginScreen());
+                },
                 child: Text('Get Started'),
               ))
         ],

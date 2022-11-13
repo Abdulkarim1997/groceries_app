@@ -6,6 +6,7 @@ import '../../shard/styles/colors.dart';
 class VerificationScreen extends StatelessWidget {
   VerificationScreen({Key? key}) : super(key: key);
   TextEditingController textFormFieldController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +53,8 @@ class VerificationScreen extends StatelessWidget {
               defaultFormField(
                 controller: textFormFieldController,
                 type: TextInputType.phone,
+                hintText: '- - - -',
+                maxLength: 4,
               ),
               TextButton(
                   onPressed: () {},

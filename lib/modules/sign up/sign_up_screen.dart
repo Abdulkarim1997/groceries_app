@@ -1,14 +1,12 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:groceries_app/modules/sing_in/sing_in_screen.dart';
 
-import '../../layout/layout.dart';
 import '../../shard/components/components.dart';
 import '../../shard/styles/colors.dart';
-import '../number/number_screen.dart';
-import '../sign up/sign_up_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class SingupScreen extends StatelessWidget {
+  SingupScreen({Key? key}) : super(key: key);
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -35,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                     height: 30.0,
                   ),
                   Text(
-                    'Login',
+                    'Sign Up',
                     style: Theme.of(context)
                         .textTheme
                         .headline4
@@ -45,11 +43,23 @@ class LoginScreen extends StatelessWidget {
                     height: 15.0,
                   ),
                   Text(
-                    'Enter your emails and password',
+                    'Enter your credentials to continue',
                     style: TextStyle(color: grey),
                   ),
                   const SizedBox(
                     height: 68.0,
+                  ),
+                  defaultFormField(
+                    controller: emailController,
+                    type: TextInputType.name,
+                    validator: (String? value) {
+                      if (value!.isEmpty) return "Please enter your user name";
+                    },
+                    lable: 'Username',
+                    prefix: Icons.person,
+                  ),
+                  const SizedBox(
+                    height: 15.0,
                   ),
                   defaultFormField(
                     controller: emailController,
@@ -78,30 +88,43 @@ class LoginScreen extends StatelessWidget {
                     prefix: Icons.lock_outline,
                   ),
                   const SizedBox(
-                    height: 5.0,
+                    height: 10.0,
                   ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: defaultTextButton(
-                      color: black,
-                      fontSize: 14,
-                      function: () {
-                        navigateTo(context, NumberScreen());
-                      },
-                      text: 'Forgot Password?',
+                  // Align(
+                  //   alignment: Alignment.topLeft,
+                  //   child: defaultTextButton(
+                  //     color: black,
+                  //     fontSize: 14,
+                  //     function: () {
+                  //       // navigateTo(context, ShopRegisterScreen());
+                  //     },
+                  //     text:
+                  //         'By continuing you agree to our Terms of Serviceand Privacy Policy.',
+                  //   ),
+                  // ),
+                  RichText(
+                    text: const TextSpan(
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: black,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(text: 'By continuing you agree to our '),
+                        TextSpan(
+                            text: 'Terms of Serviced Privacy Policy.',
+                            style: TextStyle(color: defaultColor)),
+                      ],
                     ),
                   ),
                   const SizedBox(
-                    height: 40.0,
+                    height: 30.0,
                   ),
                   ConditionalBuilder(
                     condition: true,
                     builder: (context) => defaultButton(
-                      name: "Log In",
+                      name: "Sing Up",
                       context: context,
-                      function: () {
-                        navigateTo(context, const LayoutScreen());
-                      },
+                      function: () {},
                       width: double.infinity,
                       height: 67.0,
                       radius: 19,
@@ -115,13 +138,13 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Don\'t have an account?'),
+                      const Text('Already have an account?'),
                       defaultTextButton(
                           fontSize: 16,
                           function: () {
-                            navigateTo(context, SingupScreen());
+                            navigateTo(context, const SingInScreen());
                           },
-                          text: 'Singup'),
+                          text: 'Singin'),
                     ],
                   ),
                 ],
