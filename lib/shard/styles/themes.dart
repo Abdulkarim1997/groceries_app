@@ -22,21 +22,21 @@ ThemeData lightTheme = ThemeData(
     ),
   )),
   appBarTheme: const AppBarTheme(
-    backgroundColor: white,
-    elevation: 0.0,
-    systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: white,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.dark),
-    iconTheme: IconThemeData(
-      color: Colors.black,
-    ),
-  ),
+      backgroundColor: white,
+      elevation: 0.0,
+      systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: white,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.dark),
+      iconTheme: IconThemeData(
+        color: Colors.black,
+      ),
+      titleTextStyle: TextStyle(color: black)),
   textTheme: const TextTheme(
     bodyText1: TextStyle(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
-      color: Colors.white,
+      color: black,
     ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(

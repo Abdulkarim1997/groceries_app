@@ -16,19 +16,7 @@ class LayoutScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = GroceriesCubit.get(context);
         return Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'Salla',
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  navigateTo(context, SearchScreen());
-                },
-                icon: Icon(Icons.search),
-              ),
-            ],
-          ),
+          appBar: buildAppBar(cubit, context),
           body: cubit.bottomScreen[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             onTap: (index) {
@@ -73,5 +61,99 @@ class LayoutScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  PreferredSizeWidget? buildAppBar(
+    GroceriesCubit cubit,
+    BuildContext context,
+  ) {
+    int index = cubit.currentIndex;
+    switch (index) {
+      case 0:
+        {
+          return AppBar(
+            title: Text(
+              'Salla',
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  navigateTo(context, SearchScreen());
+                },
+                icon: Icon(Icons.search),
+              ),
+            ],
+          );
+        }
+        break;
+      case 1:
+        {
+          return AppBar(
+            title: Text(
+              'Salla2',
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  navigateTo(context, SearchScreen());
+                },
+                icon: Icon(Icons.search),
+              ),
+            ],
+          );
+        }
+        break;
+      case 2:
+        {
+          return AppBar(
+            title: Text(
+              'Salla3',
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  navigateTo(context, SearchScreen());
+                },
+                icon: Icon(Icons.search),
+              ),
+            ],
+          );
+        }
+        break;
+      case 3:
+        {
+          return AppBar(
+            title: Text(
+              'Salla4',
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  navigateTo(context, SearchScreen());
+                },
+                icon: Icon(Icons.search),
+              ),
+            ],
+          );
+        }
+        break;
+      case 4:
+        {
+          return AppBar(
+            title: Text(
+              'Salla5',
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  navigateTo(context, SearchScreen());
+                },
+                icon: Icon(Icons.search),
+              ),
+            ],
+          );
+        }
+        break;
+    }
   }
 }
