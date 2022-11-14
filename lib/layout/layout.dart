@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../modules/search/search_screen.dart';
 import '../shard/components/components.dart';
+import '../shard/styles/colors.dart';
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
@@ -71,18 +72,52 @@ class LayoutScreen extends StatelessWidget {
     switch (index) {
       case 0:
         {
-          return AppBar(
-            title: Text(
-              'Salla',
+          return PreferredSize(
+            preferredSize: Size.fromHeight(200.0), // here the desired height
+            child: AppBar(
+              automaticallyImplyLeading: false,
+              centerTitle: false,
+              flexibleSpace: Column(mainAxisAlignment: MainAxisAlignment.center,
+                  // mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'assets/images/carrot28_32.png',
+                      height: 50,
+                      width: 50,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.location_on_outlined),
+                        Text('Dhaka, Banassre'),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      child: TextField(
+                        textAlign: TextAlign.center,
+                        onSubmitted: (txt) async {},
+                        autofocus: false,
+                        decoration: const InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: grey,
+                          ),
+                          filled: true,
+                          fillColor: heavenly,
+                          hintText: "Search Store",
+                          hintStyle: TextStyle(fontSize: 14.0, color: grey),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: white, width: 0.0),
+                          ),
+                          // focusedBorder: OutlineInputBorder(
+                          //   borderSide: BorderSide(color: golden, width: 0.0),
+                          // ),
+                        ),
+                      ),
+                    )
+                  ]),
             ),
-            actions: [
-              IconButton(
-                onPressed: () {
-                  navigateTo(context, SearchScreen());
-                },
-                icon: Icon(Icons.search),
-              ),
-            ],
           );
         }
         break;
