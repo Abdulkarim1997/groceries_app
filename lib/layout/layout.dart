@@ -80,22 +80,31 @@ class LayoutScreen extends StatelessWidget {
               flexibleSpace: Column(mainAxisAlignment: MainAxisAlignment.center,
                   // mainAxisSize: MainAxisSize.min,
                   children: [
+                    const SizedBox(
+                      height: 58,
+                    ),
                     Image.asset(
                       'assets/images/carrot28_32.png',
                       height: 50,
                       width: 50,
                     ),
+                    const SizedBox(
+                      height: 3.8,
+                    ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: [
+                      children: const [
                         Icon(Icons.location_on_outlined),
                         Text('Dhaka, Banassre'),
                       ],
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextField(
-                        textAlign: TextAlign.center,
+                        textAlign: TextAlign.start,
                         onSubmitted: (txt) async {},
                         autofocus: false,
                         decoration: const InputDecoration(
@@ -108,7 +117,12 @@ class LayoutScreen extends StatelessWidget {
                           hintText: "Search Store",
                           hintStyle: TextStyle(fontSize: 14.0, color: grey),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: white, width: 0.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15.0)),
+                            borderSide: BorderSide(
+                              color: white,
+                              width: 0.0,
+                            ),
                           ),
                           // focusedBorder: OutlineInputBorder(
                           //   borderSide: BorderSide(color: golden, width: 0.0),
