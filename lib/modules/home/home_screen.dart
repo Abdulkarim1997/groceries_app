@@ -35,6 +35,39 @@ class HomeScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
+                  'Exclusive Offer',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                ),
+                Spacer(),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'See all',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Container(
+              height: 269.5,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, index) => buildShopCardItem(),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 20,
+                      ),
+                  itemCount: 5),
+            ),
+            const SizedBox(
+              height: 51.5,
+            ),
+            Row(
+              children: [
+                Text(
                   'Best Selling',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                 ),
