@@ -95,6 +95,53 @@ class HomeScreen extends StatelessWidget {
                       ),
                   itemCount: 5),
             ),
+            const SizedBox(
+              height: 51.5,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Groceries',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                ),
+                Spacer(),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'See all',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Container(
+              height: 105.5,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, index) => buildShopGroceriesCardItem(),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 20,
+                      ),
+                  itemCount: 5),
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Container(
+              height: 269.5,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, index) => buildShopCardItem(),
+                  separatorBuilder: (context, index) => SizedBox(
+                        width: 20,
+                      ),
+                  itemCount: 5),
+            ),
           ],
         ),
       ),
@@ -103,7 +150,11 @@ class HomeScreen extends StatelessWidget {
 
   Widget buildShopCardItem() => Card(
         // margin: EdgeInsets.all(10),
-
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(color: cardBorder),
+          borderRadius: BorderRadius.circular(18),
+          //set border radius more than 50% of height and width to make circle
+        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -164,6 +215,31 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ],
+          ),
+        ),
+      );
+
+  Widget buildShopGroceriesCardItem() => SizedBox(
+        width: 248.19,
+        child: Card(
+          color: cardColor,
+          child: Padding(
+            padding: const EdgeInsets.all(17.3),
+            child: Row(
+              children: [
+                Image.asset('assets/images/Pulses.png'),
+                SizedBox(
+                  width: 15,
+                ),
+                Text(
+                  'Pulses',
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: 'Gilroy',
+                      fontWeight: FontWeight.w600),
+                ),
+              ],
+            ),
           ),
         ),
       );
