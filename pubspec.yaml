@@ -69,11 +69,11 @@ flutter:
       - asset: assets/fonts/Gilroy-Light.ttf
       - asset: assets/fonts/Gilroy-Regular.ttf
         style: italic
-  - family: Trajan Pro
-    fonts:
-      - asset: assets/fonts/TrajanPro.ttf
-      - asset: assets/fonts/TrajanPro_Bold.ttf
-        weight: 700
+#  - family: Trajan Pro
+#    fonts:
+#      - asset: assets/fonts/TrajanPro.ttf
+#      - asset: assets/fonts/TrajanPro_Bold.ttf
+#        weight: 700
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
