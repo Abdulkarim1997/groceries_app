@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../shard/styles/colors.dart';
 
@@ -11,6 +12,8 @@ class PoductDetail extends StatefulWidget {
 }
 
 class _PoductDetailState extends State<PoductDetail> {
+  int _quantity = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,25 +79,35 @@ class _PoductDetailState extends State<PoductDetail> {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Naturel Red Apple',
                       style: TextStyle(
                         fontSize: 24,
                         fontFamily: 'Gilroy-Bold',
                       ),
                     ),
-                    Text(
+                    const Text(
                       '1kg, Price',
                       style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Gilro',
                       ),
                     ),
+                    buildQuantityRow(),
                   ],
                 ),
                 Column(
-                  children: [],
+                  children: [
+                    Icon(Icons.favorite_border_outlined),
+                    const Text(
+                      '\$4.99',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontFamily: 'Gilroy-Bold',
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -103,4 +116,41 @@ class _PoductDetailState extends State<PoductDetail> {
       ),
     );
   }
+
+  Widget buildQuantityRow() => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          buildQuantityDownButton(),
+          Container(
+              width: 36,
+              child: Center(
+                  child: Text(
+                _quantity.toString(),
+                style: TextStyle(fontSize: 18, color: black),
+              ))),
+          buildQuantityUpButton()
+        ],
+      );
+
+  buildQuantityDownButton() => SizedBox(
+      width: 36,
+      child: IconButton(
+          icon: Icon(FontAwesomeIcons.minus, size: 16, color: black),
+          onPressed: () {
+            if (_quantity > 1) {
+              _quantity--;
+              setState(() {});
+            }
+          }));
+
+  buildQuantityUpButton() => SizedBox(
+        width: 36,
+        child: IconButton(
+            icon: Icon(FontAwesomeIcons.plus, size: 16, color: black),
+            onPressed: () {
+              _quantity = _quantity + 1;
+              setState(() {});
+            }),
+      );
 }
