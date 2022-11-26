@@ -98,19 +98,20 @@ class _PoductDetailState extends State<PoductDetail> {
                   ],
                 ),
                 Column(
-                  children: [
+                  children: const [
                     Icon(Icons.favorite_border_outlined),
-                    const Text(
+                    Text(
                       '\$4.99',
                       style: TextStyle(
                         fontSize: 24,
-                        fontFamily: 'Gilroy-Bold',
+                        fontFamily: 'Gilroy',
                       ),
                     ),
                   ],
                 ),
               ],
             ),
+            Divider(),
           ],
         ),
       ),

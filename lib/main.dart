@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:groceries_app/shard/bloc_observer.dart';
 import 'package:groceries_app/shard/styles/themes.dart';
 
@@ -28,10 +29,16 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<GroceriesCubit>(create: (context) => GroceriesCubit()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: lightTheme,
-        home: const SplashScreen(),
+      //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
+      child: ScreenUtilInit(
+        designSize: const Size(360, 690),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          home: const SplashScreen(),
+        ),
       ),
     );
   }
