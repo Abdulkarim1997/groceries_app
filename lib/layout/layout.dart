@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../modules/search/search_screen.dart';
 import '../shard/components/components.dart';
@@ -73,23 +74,23 @@ class LayoutScreen extends StatelessWidget {
       case 0:
         {
           return PreferredSize(
-            preferredSize: Size.fromHeight(200.0), // here the desired height
+            preferredSize: Size.fromHeight(200.0.h), // here the desired height
             child: AppBar(
               automaticallyImplyLeading: false,
               centerTitle: false,
               flexibleSpace: Column(mainAxisAlignment: MainAxisAlignment.center,
                   // mainAxisSize: MainAxisSize.min,
                   children: [
-                    const SizedBox(
-                      height: 58,
+                    SizedBox(
+                      height: 58.h,
                     ),
                     Image.asset(
                       'assets/images/carrot28_32.png',
-                      height: 50,
-                      width: 50,
+                      height: 50.h,
+                      width: 50.w,
                     ),
-                    const SizedBox(
-                      height: 3.8,
+                    SizedBox(
+                      height: 3.8.h,
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -98,11 +99,11 @@ class LayoutScreen extends StatelessWidget {
                         Text('Dhaka, Banassre'),
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: 20.h,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: EdgeInsets.symmetric(horizontal: 20.0.w),
                       child: TextField(
                         textAlign: TextAlign.start,
                         onSubmitted: (txt) async {},

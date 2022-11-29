@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../shard/styles/colors.dart';
 
 class PoductDetail extends StatefulWidget {
-  const PoductDetail({Key? key}) : super(key: key);
+  PoductDetail({Key? key}) : super(key: key);
 
   @override
   State<PoductDetail> createState() => _PoductDetailState();
@@ -27,91 +28,122 @@ class _PoductDetailState extends State<PoductDetail> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ImageSlideshow(
-              /// Width of the [ImageSlideshow].
-              width: double.infinity,
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25)),
+              child: Container(
+                // decoration: BoxDecoration(
+                //   border: Border.all(color: cardBorder),
+                // ),
+                child: ImageSlideshow(
+                  /// Width of the [ImageSlideshow].
+                  width: double.infinity,
 
-              /// Height of the [ImageSlideshow].
-              height: 371.44,
+                  /// Height of the [ImageSlideshow].
+                  height: 250.44.h,
 
-              /// The page to show when first creating the [ImageSlideshow].
-              initialPage: 0,
+                  /// The page to show when first creating the [ImageSlideshow].
+                  initialPage: 0,
 
-              /// The color to paint the indicator.
-              indicatorColor: defaultColor,
+                  /// The color to paint the indicator.
+                  indicatorColor: defaultColor,
 
-              /// The color to paint behind th indicator.
-              indicatorBackgroundColor: Colors.grey,
+                  /// The color to paint behind th indicator.
+                  indicatorBackgroundColor: Colors.grey,
 
-              /// Called whenever the page in the center of the viewport changes.
-              onPageChanged: (value) {
-                print('Page changed: $value');
-              },
+                  /// Called whenever the page in the center of the viewport changes.
+                  onPageChanged: (value) {
+                    print('Page changed: $value');
+                  },
 
-              /// Auto scroll interval.
-              /// Do not auto scroll with null or 0.
-              autoPlayInterval: null,
+                  /// Auto scroll interval.
+                  /// Do not auto scroll with null or 0.
+                  autoPlayInterval: null,
 
-              /// Loops back to first slide.
-              isLoop: true,
+                  /// Loops back to first slide.
+                  isLoop: true,
 
-              /// The widgets to display in the [ImageSlideshow].
-              /// Add the sample image file into the images folder
-              children: [
-                Image.asset(
-                  width: 50.34,
-                  height: 50.18,
-                  'assets/images/apple.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'assets/images/apple.jpg',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'assets/images/apple.jpg',
-                  fit: BoxFit.cover,
-                ),
-              ],
-            ),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  /// The widgets to display in the [ImageSlideshow].
+                  /// Add the sample image file into the images folder
                   children: [
-                    const Text(
-                      'Naturel Red Apple',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontFamily: 'Gilroy-Bold',
-                      ),
-                    ),
-                    const Text(
-                      '1kg, Price',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'Gilro',
-                      ),
-                    ),
-                    buildQuantityRow(),
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Icon(Icons.favorite_border_outlined),
-                    Text(
-                      '\$4.99',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontFamily: 'Gilroy',
-                      ),
+                    Image.asset(
+                      'assets/images/apple.jpg',
+                      fit: BoxFit.cover,
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
-            Divider(),
+            SizedBox(
+              height: 30.5.h,
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(21.95.w, 0, 25.1.w, 0),
+              child: Column(
+                children: [
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Naturel Red Apple',
+                            style: TextStyle(
+                              fontSize: 24.sp,
+                              fontFamily: 'Gilroy',
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10.5.h,
+                          ),
+                          Text(
+                            '1kg, Price',
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'Gilroy',
+                                color: grey),
+                          ),
+                          SizedBox(
+                            height: 44.33.h,
+                          ),
+                          buildQuantityRow(),
+                        ],
+                      ),
+                      Spacer(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Icon(
+                            Icons.favorite_border_outlined,
+                            color: cardBorder,
+                            size: 22.8.h,
+                          ),
+                          SizedBox(
+                            height: 90.57.h,
+                          ),
+                          const Text(
+                            '\$4.99',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontFamily: 'Gilroy',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 19.04.h,
+                  ),
+                  const Divider(
+                    color: dividerColor,
+                    thickness: 1,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -123,13 +155,24 @@ class _PoductDetailState extends State<PoductDetail> {
         mainAxisSize: MainAxisSize.max,
         children: [
           buildQuantityDownButton(),
+          SizedBox(
+            width: 20.sp,
+          ),
           Container(
-              width: 36,
+              width: 45.67,
+              height: 45.67,
+              decoration: BoxDecoration(
+                border: Border.all(color: cardBorder),
+                borderRadius: BorderRadius.circular(17),
+              ),
               child: Center(
                   child: Text(
                 _quantity.toString(),
                 style: TextStyle(fontSize: 18, color: black),
               ))),
+          SizedBox(
+            width: 20.sp,
+          ),
           buildQuantityUpButton()
         ],
       );
@@ -137,7 +180,7 @@ class _PoductDetailState extends State<PoductDetail> {
   buildQuantityDownButton() => SizedBox(
       width: 36,
       child: IconButton(
-          icon: Icon(FontAwesomeIcons.minus, size: 16, color: black),
+          icon: Icon(FontAwesomeIcons.minus, size: 17.sp, color: black),
           onPressed: () {
             if (_quantity > 1) {
               _quantity--;
@@ -148,7 +191,11 @@ class _PoductDetailState extends State<PoductDetail> {
   buildQuantityUpButton() => SizedBox(
         width: 36,
         child: IconButton(
-            icon: Icon(FontAwesomeIcons.plus, size: 16, color: black),
+            icon: Icon(
+              FontAwesomeIcons.plus,
+              size: 17.sp,
+              color: defaultColor,
+            ),
             onPressed: () {
               _quantity = _quantity + 1;
               setState(() {});
