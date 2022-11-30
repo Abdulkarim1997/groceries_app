@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../shard/components/components.dart';
 import '../../shard/styles/colors.dart';
 
 class PoductDetail extends StatefulWidget {
@@ -82,109 +84,212 @@ class _PoductDetailState extends State<PoductDetail> {
               padding: EdgeInsetsDirectional.fromSTEB(21.95.w, 0, 25.1.w, 0),
               child: Column(
                 children: [
-                  Row(
-                    // mainAxisAlignment: MainAxisAlignment.start,
+                  Column(
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            'Naturel Red Apple',
-                            style: TextStyle(
-                              fontSize: 24.sp,
-                              fontFamily: 'Gilroy',
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Naturel Red Apple',
+                                style: TextStyle(
+                                  fontSize: 24.sp,
+                                  fontFamily: 'Gilroy',
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.5.h,
+                              ),
+                              Text(
+                                '1kg, Price',
+                                style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontFamily: 'Gilroy',
+                                    color: grey),
+                              ),
+                              SizedBox(
+                                height: 44.33.h,
+                              ),
+                              buildQuantityRow(),
+                            ],
                           ),
-                          SizedBox(
-                            height: 10.5.h,
+                          const Spacer(),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Icons.favorite_border_outlined,
+                                color: cardBorder,
+                                size: 22.8.h,
+                              ),
+                              SizedBox(
+                                height: 90.57.h,
+                              ),
+                              const Text(
+                                '\$4.99',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontFamily: 'Gilroy',
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            '1kg, Price',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                fontFamily: 'Gilroy',
-                                color: grey),
-                          ),
-                          SizedBox(
-                            height: 44.33.h,
-                          ),
-                          buildQuantityRow(),
                         ],
                       ),
-                      const Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Icon(
-                            Icons.favorite_border_outlined,
-                            color: cardBorder,
-                            size: 22.8.h,
-                          ),
-                          SizedBox(
-                            height: 90.57.h,
-                          ),
-                          const Text(
-                            '\$4.99',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontFamily: 'Gilroy',
-                            ),
-                          ),
-                        ],
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      const Divider(
+                        color: dividerColor,
+                        thickness: 1,
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 19.04.h,
-                  ),
-                  const Divider(
-                    color: dividerColor,
-                    thickness: 1,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(21.95.w, 0, 25.1.w, 0),
-              child: Column(
-                children: [
-                  Row(
-                    // mainAxisAlignment: MainAxisAlignment.start,
+                  Column(
                     children: [
-                      Expanded(
-                        child: Row(
-                          children: [
-                            Text(
-                              'Product Detail',
-                              style: TextStyle(
-                                fontSize: 16.sp,
-                                fontFamily: 'Gilroy',
-                              ),
+                      Row(
+                        // mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Product Detail',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontFamily: 'Gilroy',
+                                  ),
+                                ),
+                                Spacer(),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.keyboard_arrow_down_outlined,
+                                      size: 30.0.sp),
+                                ),
+                              ],
                             ),
-                            Spacer(),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.keyboard_arrow_down_outlined),
-                            ),
-                          ],
+                          ),
+                        ],
+                      ),
+                      Text(
+                        'Apples are nutritious. Apples may be good for weight loss.\napples may be good for your heart. As part of a healtful and varied diet.',
+                        // maxLines: 3,
+
+                        style: TextStyle(
+                          color: grey,
+                          fontSize: 13.sp,
+                          fontFamily: 'Gilroy-Medium',
                         ),
                       ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      const Divider(
+                        color: dividerColor,
+                        thickness: 1,
+                      ),
                     ],
                   ),
-                  Text(
-                    'Apples are nutritious. Apples may be good for weight loss. \n apples may be good for your heart. As part of a healtful and varied diet.',
-                    // maxLines: 3,
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontFamily: 'Gilroy',
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        'Nutritions',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Gilroy',
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        width: 33.61.h,
+                        height: 18.w,
+                        decoration: BoxDecoration(
+                          color: lightGrey,
+                          border: Border.all(color: cardBorder),
+                          borderRadius: BorderRadius.circular(5.r),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '100gr',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 9.sp,
+                              fontFamily: 'Gilroy',
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20.6.w,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.keyboard_arrow_right_outlined,
+                            size: 30.0.sp),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    height: 19.04.h,
+                    height: 5.h,
                   ),
                   const Divider(
                     color: dividerColor,
                     thickness: 1,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Review',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontFamily: 'Gilroy',
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: RatingBar.builder(
+                          itemSize: 20.0,
+                          //TODO التقييمات في حال الشراء فقط لازم API
+                          initialRating: 0,
+                          minRating: 1,
+                          direction: Axis.horizontal,
+                          allowHalfRating: false,
+                          itemCount: 5,
+                          glowColor: Colors.amber,
+                          itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                          itemBuilder: (context, _) {
+                            return Icon(FontAwesomeIcons.star,
+                                color: Colors.amber);
+                          },
+                          onRatingUpdate: (rating) async {},
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20.6.w,
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.keyboard_arrow_right_outlined,
+                            size: 30.0.sp),
+                      ),
+                      SizedBox(
+                        height: 19.04.h,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 23.14.h,
+                  ),
+                  defaultButton(
+                      context: context,
+                      name: 'Add To Basket',
+                      function: () {},
+                      radius: 19.r),
+                  SizedBox(
+                    height: 38.67.h,
                   ),
                 ],
               ),

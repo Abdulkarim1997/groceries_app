@@ -108,7 +108,7 @@ class LayoutScreen extends StatelessWidget {
                         textAlign: TextAlign.start,
                         onSubmitted: (txt) async {},
                         autofocus: false,
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           prefixIcon: Icon(
                             Icons.search,
                             color: grey,
@@ -116,13 +116,12 @@ class LayoutScreen extends StatelessWidget {
                           filled: true,
                           fillColor: heavenly,
                           hintText: "Search Store",
-                          hintStyle: TextStyle(fontSize: 14.0, color: grey),
+                          hintStyle: TextStyle(fontSize: 14.0.sp, color: grey),
                           enabledBorder: OutlineInputBorder(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(15.0)),
+                                BorderRadius.all(Radius.circular(15.0.r)),
                             borderSide: BorderSide(
                               color: white,
-                              width: 0.0,
                             ),
                           ),
                           // focusedBorder: OutlineInputBorder(
