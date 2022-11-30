@@ -139,8 +139,8 @@ class LayoutScreen extends StatelessWidget {
       case 1:
         {
           return AppBar(
-            title: Text(
-              'Salla2',
+            title: const Text(
+              'Sally2',
             ),
             actions: [
               IconButton(
@@ -156,7 +156,7 @@ class LayoutScreen extends StatelessWidget {
       case 2:
         {
           return AppBar(
-            title: Text(
+            title: const Text(
               'Salla3',
             ),
             actions: [

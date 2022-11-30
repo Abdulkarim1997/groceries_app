@@ -111,7 +111,7 @@ class _PoductDetailState extends State<PoductDetail> {
                           buildQuantityRow(),
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
@@ -133,6 +133,51 @@ class _PoductDetailState extends State<PoductDetail> {
                         ],
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 19.04.h,
+                  ),
+                  const Divider(
+                    color: dividerColor,
+                    thickness: 1,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(21.95.w, 0, 25.1.w, 0),
+              child: Column(
+                children: [
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Text(
+                              'Product Detail',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontFamily: 'Gilroy',
+                              ),
+                            ),
+                            Spacer(),
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.keyboard_arrow_down_outlined),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    'Apples are nutritious. Apples may be good for weight loss. \n apples may be good for your heart. As part of a healtful and varied diet.',
+                    // maxLines: 3,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontFamily: 'Gilroy',
+                    ),
                   ),
                   SizedBox(
                     height: 19.04.h,
